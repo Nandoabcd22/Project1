@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "106765384451",
+    "firebase_url": "https://signup-login-realtime-7108e-default-rtdb.firebaseio.com",
+    "project_id": "signup-login-realtime-7108e",
+    "storage_bucket": "signup-login-realtime-7108e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106765384451:android:684f600c259df070b54736",
+        "android_client_info": {
+          "package_name": "com.nando.signuploginrealtime"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIypQExkBkaW6OFnR_gGX_sNlfxj6WuAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
