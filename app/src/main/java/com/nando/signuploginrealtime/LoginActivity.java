@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
     public Boolean validateUsername() {
         String val = loginUsername.getText().toString();
         if (val.isEmpty()) {
-            loginUsername.setError("Username cannot be empty");
+            loginUsername.setError("Username tidak boleh kosong");
             return false;
         } else {
             loginUsername.setError(null);
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     public Boolean validatePassword(){
         String val = loginPassword.getText().toString();
         if (val.isEmpty()) {
-            loginPassword.setError("Password cannot be empty");
+            loginPassword.setError("kata sandi tidak boleh kosong");
             return false;
         } else {
             loginPassword.setError(null);
@@ -110,12 +111,13 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("password", passwordFromDB);
 
                         startActivity(intent);
+                        Toast.makeText(LoginActivity.this, "Login berhasil!", Toast.LENGTH_SHORT).show();
                     } else {
-                        loginPassword.setError("Invalid Credentials");
+                        loginPassword.setError("password salah");
                         loginPassword.requestFocus();
                     }
                 } else {
-                    loginUsername.setError("User does not exist");
+                    loginUsername.setError("User tidak ditemukan");
                     loginUsername.requestFocus();
                 }
             }

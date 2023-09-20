@@ -77,7 +77,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
-                android:text="Not yet registered? Sign Up"
+                android:text="belum punya akun? Daftar"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
