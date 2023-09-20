@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText loginUsername, loginPassword;
@@ -36,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!validateUsername() || !validatePassword()) {
+                if (!validateUsername() | !validatePassword()) {
 
                 } else {
                     checkUser();
@@ -57,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     public Boolean validateUsername() {
         String val = loginUsername.getText().toString();
         if (val.isEmpty()) {
-            loginUsername.setError("Username tidak boleh kosong");
+            loginUsername.setError("Username cannot be empty");
             return false;
         } else {
             loginUsername.setError(null);
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     public Boolean validatePassword(){
         String val = loginPassword.getText().toString();
         if (val.isEmpty()) {
-            loginPassword.setError("Password tidak boleh kosong");
+            loginPassword.setError("Password cannot be empty");
             return false;
         } else {
             loginPassword.setError(null);
@@ -101,17 +103,19 @@ public class LoginActivity extends AppCompatActivity {
                         String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("username", usernameFromDB);
+                        intent.putExtra("password", passwordFromDB);
+
                         startActivity(intent);
-                        finish();
                     } else {
-                        loginPassword.setError("password salah");
+                        loginPassword.setError("Invalid Credentials");
                         loginPassword.requestFocus();
                     }
                 } else {
-                    loginUsername.setError("User tidak di temukan");
+                    loginUsername.setError("User does not exist");
                     loginUsername.requestFocus();
                 }
             }
