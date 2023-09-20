@@ -1,8 +1,6 @@
 package com.nando.signuploginrealtime;
 
 public class HelperClass {
-    public HelperClass() {
-    }
 
     String name, email, username, password;
 
@@ -43,5 +41,8 @@ public class HelperClass {
         this.email = email;
         this.username = username;
         this.password = password;
+    }
+
+    public HelperClass() {
     }
 }
